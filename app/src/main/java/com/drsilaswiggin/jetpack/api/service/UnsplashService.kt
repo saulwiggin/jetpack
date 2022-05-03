@@ -23,11 +23,12 @@ interface UnsplashService {
         @Query("client_id") clientId: String = BuildConfig.UNSPLASH_ACCESS_KEY
     ): UnsplashSearchResponse
 
+    // we want to display the data in the console returned by the API with the interceptor
     companion object {
         private const val BASE_URL = "https://api.unsplash.com/"
 
         fun create(): UnsplashService {
-            val logger = HttpLoggingInterceptor().apply { Level.BASIC }
+            val logger = HttpLoggingInterceptor().apply { Level.BODY }
 
             val logging = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
                 override fun log(message: String) {
