@@ -1,0 +1,17 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// build script adds the min compile version and app dependancies versions
+buildscript{
+    ext {
+        okhttpLoggingVersion = '4.7.2'
+        retrofitVersion = '2.9.0'
+    }
+}
+plugins {
+    id 'com.android.application' version '7.1.0-beta02' apply false
+    id 'com.android.library' version '7.1.0-beta02' apply false
+    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
